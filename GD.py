@@ -4,7 +4,7 @@ dna_length = len(dna)
 block_size = 10
 blocking = 10
 start = 0
-print (dna)
+print (dna_length)
 dna_list = []
 #loops
 while start < dna_length :
