@@ -12,4 +12,5 @@ while a < b:
 
 print(sum)
 
+#challenge value is 144
 
