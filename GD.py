@@ -4,8 +4,8 @@ dna_length = len(dna)
 block_size = 10
 blocking = 10
 start = 0
-print (dna_length)
 dna_list = []
+
 #loops
 while start < dna_length :
    dna_list.append(dna[start:blocking]) 
