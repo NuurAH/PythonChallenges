@@ -2,7 +2,7 @@
 a = 50
 b = 100
 
-#all values between a and b, and no positive integers add +1 to a and then see if it is divisble by 2 using modulus operator. If it isn't then it is added to sum
+#all values between a and b, checked to see if it is divisble by 2 using modulus operator. If it isn't then it is added to sum
 
 sum = 0 
 while a < b:
