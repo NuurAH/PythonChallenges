@@ -89,7 +89,7 @@ while start < dna_length :
    blocking += block_size
    protein += 1
    if (protein+1) %3 == 0:
-       find()[1]
+       find()
 #splitting dna
 split_dna = ""
 for _ in dna_list:
