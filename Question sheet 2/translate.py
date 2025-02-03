@@ -73,28 +73,33 @@ extracted_codons = [ ]
 protein = 0
 dna_upper = dna.upper()
 split_dna_list = []
+second_list = []
 
 #function   
 print(dna_upper)
 def find():
-    for key, value in codon_table.items():
-        if value in dna_list:
+   for key, value in codon_table.items():
+      if value in second_list:
             extracted_codons.append(key)
+            print(second_list)
+            
 
 
 #need to find a way to make the find function not return all of the previous values in the loop. So make it jump by 3
 while start < dna_length :
    dna_list.append(dna_upper[start:blocking]) 
+   second_list.append(dna_upper[start:blocking])
    start += block_size
    blocking += block_size
-   protein += 1
-   if (protein+1) %3 == 0:
-       find()
+   if len(second_list) == 1:
+      find()
+   else:
+       continue
 #splitting dna
 split_dna = ""
 for _ in dna_list:
    split_dna += (" " + (_) + " ")
-
+print(split_dna)
 
 #need to convert split dna into values so if 
 #For split on the list, it needs to be converted into the right key
