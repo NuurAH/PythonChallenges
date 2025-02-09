@@ -35,7 +35,6 @@ dna_upper = dna.upper()
 split_dna_list = []
 
 #function   
-print(dna_upper)
 def find():
     print(dna_list[-1])
     for key, value in codon_table.items():
@@ -45,15 +44,13 @@ def find():
 
 
 
-#need to find a way to make the find function not return all of the previous values in the loop. So make it jump by 3
+#loop
 
 while start < dna_length :
     dna_list.append(dna_upper[start:(start+block_size)]) 
     #print(dna_list[-1])
     find()
     start += block_size
-
-print(extracted_codons)
    
 # #splitting dna
 # split_dna = ""
