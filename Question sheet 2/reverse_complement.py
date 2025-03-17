@@ -1,11 +1,11 @@
-dna = "XXX"
+dna = "GCTGAGACTTCCTGGACGGGGGACAGGCTGTGGGGTTTCTCAGATAACTGGGCCCCTGCGCTCAGGAGGCCTTCACCCTCTGCTCTGGGTAAAGTTCATTGGAACAGAAAGAAATGGATTTATCTGCTCTTCGCGTTGAAGAAGTACAAAATGTCATTAATGCTATGCAGAAAATCTTAGAGTGTCCCATCTGTCTGGAGTTGATCAAGGAACCTGTCTCCACAAAGTGTGACCACATATTTTGCAAATTTTGCATGCTGAAACTTCTCAACCAGAAGAAAGGGCCTTCACAGTGTCCTTTATGTAAGAATGATATAACCAAAAGGAGCCTACAAGAAAGTACGAGATTTGAT"
+
 reverse_dna = dna[::-1]
 dna_length = len(dna)
 c_list = list(dna)
 start = 0
 dna_list = []
 complement_list = []
-tracker = 0
 
 complement_table = {
     "a" : "t",
@@ -19,20 +19,21 @@ complement_table = {
 }
 
 #repurposing the function to look through the last string value in the DNA to look through the complement table
-def reverse_complement():
-    tracker = 0
-    for key, value in complement_table.items():
-        if dna_list[-1] in value :
-            tracker +=1
-            complement_list.append(key)
-        else:
-            print("This is not a base" + " " + dna_list[-1])
+def reverse_complement(x):
+
+    else:
+        print("This is not a base" + " " + x)
+        return ""
 
 
 while start < dna_length:
     dna_list.append(dna[start])
-    reverse_complement()
+
+
     start +=1
+
+
+
 
 # def base_scan():
 #     for value in complement_table.items():
