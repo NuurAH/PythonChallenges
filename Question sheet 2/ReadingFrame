@@ -1,0 +1,83 @@
+#Regular variables
+dna = "aggagtaagcccttgcaactggaaatacacccattg"
+dna_length = len(dna)
+start = 0
+complement = 0
+block_size = 3
+dna_upper = dna.upper()
+#Lists
+dna_list = []
+complement_list = []
+extracted_codons = []
+# Dictionaries, changed complement table to only have upper case in order to make my life easier
+complement_table = {
+    "A" : "T",
+    "T" : "A",
+    "G" : "C",
+    "C" : "G"
+}
+codon_table = {
+    "F" : ["TTT","TTC"],
+    "L" : ["TTA", "TTG", "CTT", "CTA", "CTG" ],
+    "I" : ["ATT", "ATC", "ATA"],
+    "M" : ["ATG"],
+    "V" : ["GTT", "GTC", "GTG"],
+    "S" : ["TCT", "TCC", "TCA", "TCG", "AGT", "AGC"],
+    "P" : ["CCT", "CCC", "CCA", "CCG"],
+    "T" : ["ACT", "ACC", "ACA", "ACG"],
+    "A" : ["GCT", "GCC", "GCA", "GCG"],
+    "Y" : ["TAT", "TAC"],
+    "*" : ["TAA", "TAG", "TGA"],
+    "H" : ["CAT", "CAC"],
+    "Q" : ["CAA", "CAG"],
+    "N" : ["AAT", "AAC"],
+    "K" : ["AAA", "AAG"],
+    "D" : ["GAT", "GAC"],
+    "E" : ["GAA", "GAG"],
+    "C" : ["TGT", "TGC"],
+    "W" : ["TGG"],
+    "R" : ["CGT", "CGC", "CGA", "CGG", "AGA", "AGG" ],
+    "G" : ["GGT", "GGC", "GGA", "GGG" ]
+}
+#functions
+def reverse_complement(nucleotide):
+    if nucleotide in complement_table:
+        return nucleotide
+    else:
+        print("This is not a base" + " " + nucleotide)
+        return ""
+def find(codon):
+    if codon in codon_table.items():
+        return codon
+    else:
+        return "*"
+
+#while loops
+# while start < dna_length:
+#     dna_list.append(dna_upper[start])
+#     complement = reverse_complement(dna_list[-1])
+#     for key, value in complement_table.items():
+#         if complement in value :
+#             complement_list.append(key)
+#     start+=1
+
+while start < dna_length:
+    dna_list.append(dna_upper[start])
+    triplet = find(dna_list[-(block_size):])
+    for key, value in codon_table.items():
+        if triplet in value :
+            extracted_codons.append(key)
+
+
+
+
+#String manipulation sections
+# complement_output = ""
+# for x in complement_list:
+#     complement_output += x
+# print(complement_output[::-1])
+
+protein_list = ""
+for x in extracted_codons:
+    protein_list += x
+print(protein_list)
