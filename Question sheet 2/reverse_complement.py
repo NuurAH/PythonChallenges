@@ -42,3 +42,4 @@ for x in complement_list:
 
 print(complement_output[::-1])
 
+#For the future, I should rewrite my function and my while loops to avoid inefficiencies
