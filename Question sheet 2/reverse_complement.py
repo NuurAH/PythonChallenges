@@ -1,4 +1,4 @@
-dna = "GCTGAGACTTCCTGGACGGGGGACAGGCTGTGGGGTTTCTCAGATAACTGGGCCCCTGCGCTCAGGAGGCCTTCACCCTCTGCTCTGGGTAAAGTTCATTGGAACAGAAAGAAATGGATTTATCTGCTCTTCGCGTTGAAGAAGTACAAAATGTCATTAATGCTATGCAGAAAATCTTAGAGTGTCCCATCTGTCTGGAGTTGATCAAGGAACCTGTCTCCACAAAGTGTGACCACATATTTTGCAAATTTTGCATGCTGAAACTTCTCAACCAGAAGAAAGGGCCTTCACAGTGTCCTTTATGTAAGAATGATATAACCAAAAGGAGCCTACAAGAAAGTACGAGATTTGAT"
+dna = "GCTGAGACTTCCTGGACGGGGGACAGGCTGTGXGGGTTTCTCAGATAACTGGGCCXCCTGCGCTCAGGAGGCCTTCACCCTCXTGCTCTGGGTAAAGTTCAXTTGGAACAGAAAGAAATGGATTTATCTGCTCTTCGCGTTGAAGAAGTACAAAATGTCATTAATGCTATGCAGAAAATCTTAGAGTGTCCCATCTGTCTGGAGTTGATCAAGGAACCTGTCTCCACAAAGTGTGACCACATATTTTGCAAATTTTGCATGCTGAAACTTCTCAACCAGAAGAAAGGGCCTTCACAGTGTCCTTTATGTAAGAATGATATAACCAAAAGGAGCCTACAAGAAAGTACGAGATTTGAT"
 
 reverse_dna = dna[::-1]
 dna_length = len(dna)
@@ -6,7 +6,7 @@ c_list = list(dna)
 start = 0
 dna_list = []
 complement_list = []
-
+complement = 0
 complement_table = {
     "a" : "t",
     "t" : "a",
@@ -19,50 +19,26 @@ complement_table = {
 }
 
 #repurposing the function to look through the last string value in the DNA to look through the complement table
-def reverse_complement(x):
-
+def reverse_complement(nucleotide):
+    if nucleotide in complement_table:
+        return nucleotide
     else:
-        print("This is not a base" + " " + x)
+        print("This is not a base" + " " + nucleotide)
         return ""
 
-
+#remade the while loop so that it is more efficient, went from outputting 8x the wrong value (dummy nucleotides not in the dictionary) to outputting the exact amount
 while start < dna_length:
     dna_list.append(dna[start])
-
-
-    start +=1
-
-
-
-
-# def base_scan():
-#     for value in complement_table.items():
-#         if dna_list[-1] not in value:
-#             print("this is not a value")
-# different function?
-
-    
-#same kind of logic as translating I think
-# while start < dna_length :
-#   if c_list[start] == "A":
-#       c_list[start] == "T"
-#   elif c_list[start] == "T":
-#       c_list[start] == "A"
-#   elif c_list[start] == "G":
-#       c_list[start] == "C"
-#   elif c_list[start] == "C":
-#     c_list[start] == "G"
-#   else:
-#     print("This is not a base")
-# complement_list.append(c_list(start))
-# start += 1
-
-
-
-#very easy to reverse the string so I saved it till the end rather than mess with a reversed DNA string
-complement_output = ""
+    complement = reverse_complement(dna_list[-1])
+    for key, value in complement_table.items():
+        if complement in value :
+            complement_list.append(key)
+    start+=1
+ #Reversing the string   
+    complement_output = ""
 for x in complement_list:
     complement_output += x
 
 
 print(complement_output[::-1])
+
